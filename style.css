@@ -1,0 +1,32 @@
+a.row {
+	display: flex;
+	align-items: center;
+}
+
+a.row.header-info {
+	justify-content: space-between;
+}
+
+a.row.footer-info {
+	justify-content: center;
+}
+
+.card {
+	padding: 0 0.5rem 0 0.5rem;
+	border: 0.15rem solid black;
+	border-radius: 0.75rem;
+	text-align: center;
+}
+
+.project-card {
+	width: 90%;
+	margin-bottom: 1rem;
+	text-align: justify;
+}
+
+.skill-card {
+	margin-bottom: 0.5rem;
+	width: 25%;
+	height: min-content;
+	min-width: min-content;
+}
