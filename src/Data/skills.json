@@ -1,0 +1,33 @@
+{
+	"hard": [
+		"Git",
+		"SQL",
+		"JavaScript",
+		"Bootstrap (Framework)",
+		"HTML",
+		"Java",
+		"Full-Stack Development",
+		"PHP",
+		"Mobile Application Development",
+		"Software Quality",
+		"Software Development",
+		"Spring Boot",
+		"React.js",
+		"Neo4j",
+		"Docker",
+		"Android Studio",
+		"PostgreSQL",
+		"SQLite"
+	],
+	"soft": [
+		"Teamwork",
+		"Communication",
+		"Team Management",
+		"Analytical Thinking",
+		"Critical Thinking",
+		"Problem Solving",
+		"Results-driven",
+		"Efficient",
+		"Organized"
+	]
+}
