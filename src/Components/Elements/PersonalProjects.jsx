@@ -1,4 +1,4 @@
-import ProjectCard from "../Links/Project/ProjectCard";
+import ProjectCard from "./Links/Project/ProjectCard";
 
 function PersonalProjects({ visibleProject, projects }) {
 	return (

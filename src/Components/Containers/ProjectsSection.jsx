@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PersonalProjects } from "../Utils";
+import { PersonalProjects } from "../Elements";
 
 function ProjectsSection({ projects }) {
 	const [visibleProject, setVisibleProject] = useState(0);
