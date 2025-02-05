@@ -5,7 +5,6 @@ function Header() {
 
 	useEffect(() => {
 		const handleScroll = () => {
-			console.log(window.scrollY);
 			if (window.scrollY > 20) setIsSticky(true);
 			if (window.scrollY <= 10) setIsSticky(false);
 		};
