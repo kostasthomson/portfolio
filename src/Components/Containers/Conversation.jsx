@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Message, TypingIndicator } from "../Utils";
+import { TypingIndicator, Message } from "../Elements";
 
 function Conversation({ conversation }) {
 	const { question, answer, content, sleepTime } = conversation;
@@ -33,19 +33,17 @@ function Conversation({ conversation }) {
 	}, [sleepTime]);
 	useEffect(() => {
 		if (scrollRef.current) {
-			console.log(scrollRef.current);
 			scrollRef.current.scrollIntoView({ behavior: "smooth" });
 		}
 	}, [showQuestion, showAnswer, isTypingQ, isTypingA]);
 	return (
 		<>
 			{visible && (
-				<div
+				<li
 					ref={scrollRef}
-					className={`
-           flex flex-col m-5 transition-all duration-300 ease-out animate-slideIn`}
+					className="flex flex-col my-5 transition-all duration-300 ease-out animate-slideIn"
 				>
-					<li className="w-10/12 flex justify-end mb-5 px-2 self-end">
+					<div className="max-w-[80%] flex justify-end mb-5 px-2 self-end">
 						{isTypingQ && <TypingIndicator />}
 						{showQuestion && (
 							<Message
@@ -53,8 +51,8 @@ function Conversation({ conversation }) {
 								text={question}
 							/>
 						)}
-					</li>
-					<li className="w-10/12 flex justify-between mt-5 px-2">
+					</div>
+					<div className="max-w-[80%] flex justify-between mt-5 px-2">
 						{isTypingA && <TypingIndicator />}
 						{showAnswer && (
 							<Message
@@ -63,8 +61,8 @@ function Conversation({ conversation }) {
 								content={content}
 							/>
 						)}
-					</li>
-				</div>
+					</div>
+				</li>
 			)}
 		</>
 	);
