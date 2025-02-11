@@ -1,6 +1,5 @@
 import * as Links from "./Links";
-import Message from "./Message";
 import PersonalProjects from "./PersonalProjects";
-import TypingIndicator from "./TypingIndicator";
+import { QuestionMessage, AnswerMessage } from "./Message";
 
-export { Links, Message, PersonalProjects, TypingIndicator };
+export { Links, PersonalProjects, QuestionMessage, AnswerMessage };

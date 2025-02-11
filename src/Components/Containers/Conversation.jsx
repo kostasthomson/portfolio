@@ -1,70 +1,71 @@
 import { useEffect, useState, useRef } from "react";
-import { TypingIndicator, Message } from "../Elements";
+import { QuestionMessage, AnswerMessage } from "../Elements";
 
-function Conversation({ conversation }) {
+function Conversation({ conversation, showNext, showAll }) {
+	const scrollRef = useRef(null);
+	const [showQuestion, setShowQuestion] = useState(false);
+	const [isTypingQ, setIsTypingQ] = useState(false);
+	const [showAnswer, setShowAnswer] = useState(false);
+	const [isTypingA, setIsTypingA] = useState(false);
 	const { question, answer, content, sleepTime } = conversation;
 	const typingDelay = 1000;
 	const responseDelay = 500;
-	const scrollRef = useRef(null);
-	const [visible, setVisible] = useState(false);
-	const [showQuestion, setShowQuestion] = useState(false);
-	const [showAnswer, setShowAnswer] = useState(false);
-	const [isTypingQ, setIsTypingQ] = useState(false);
-	const [isTypingA, setIsTypingA] = useState(false);
 	const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-	useEffect(() => {
-		const startConversation = async () => {
-			setIsTypingQ(true);
-			await sleep(typingDelay);
-			setShowQuestion(true);
-			setIsTypingQ(false);
-			await sleep(responseDelay);
-			setIsTypingA(true);
-			await sleep(typingDelay);
-			setShowAnswer(true);
-			setIsTypingA(false);
-		};
-		const displayComponent = async () => {
-			await sleep(sleepTime);
-			setVisible(true);
-			await startConversation();
-		};
-		displayComponent();
-	}, [sleepTime]);
 	useEffect(() => {
 		if (scrollRef.current) {
 			scrollRef.current.scrollIntoView({ behavior: "smooth" });
 		}
 	}, [showQuestion, showAnswer, isTypingQ, isTypingA]);
+	useEffect(() => {
+		const startConversation = async () => {
+			if (question) {
+				setIsTypingQ(true);
+				await sleep(typingDelay);
+				setIsTypingQ(false);
+				setShowQuestion(true);
+				await sleep(responseDelay);
+			}
+			if (answer) {
+				setIsTypingA(true);
+				await sleep(typingDelay);
+				setIsTypingA(false);
+				setShowAnswer(true);
+			}
+			showNext();
+		};
+		const displayComponent = async () => {
+			if (!showAll) {
+				await sleep(sleepTime);
+				await startConversation();
+			} else {
+				setShowQuestion(true);
+				setShowAnswer(true);
+			}
+		};
+		displayComponent();
+	}, [showAll]);
 	return (
-		<>
-			{visible && (
-				<li
-					ref={scrollRef}
-					className="flex flex-col my-5 transition-all duration-300 ease-out animate-slideIn"
-				>
-					<div className="max-w-[80%] flex justify-end mb-5 px-2 self-end">
-						{isTypingQ && <TypingIndicator />}
-						{showQuestion && (
-							<Message
-								className="bg-blue-600 text-white rounded-tr-md"
-								text={question}
-							/>
-						)}
-					</div>
-					<div className="max-w-[80%] flex justify-between mt-5 px-2">
-						{isTypingA && <TypingIndicator />}
-						{showAnswer && (
-							<Message
-								className="bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-tl-md"
-								text={answer}
-								content={content}
-							/>
-						)}
-					</div>
-				</li>
-			)}
-		</>
+		<li
+			ref={scrollRef}
+			className="flex flex-col my-5 transition-all duration-300 ease-out animate-slideIn"
+		>
+			<QuestionMessage
+				question={question}
+				show={showQuestion}
+				isTyping={isTypingQ}
+				typingDelay={typingDelay}
+				showAll={showAll}
+			/>
+			<AnswerMessage
+				answer={answer}
+				content={content}
+				show={showAnswer}
+				isTyping={isTypingA}
+				typingDelay={typingDelay}
+				showNext={showNext}
+				showAll={showAll}
+			/>
+		</li>
 	);
 }
 

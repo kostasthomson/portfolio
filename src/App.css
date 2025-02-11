@@ -36,7 +36,6 @@ a.link.email {
 .project-card {
 	background-color: #303036;
 	margin-bottom: 1rem;
-	text-align: justify;
 	color: white;
 	margin-top: 1rem;
 	padding-top: 1rem;
@@ -47,18 +46,15 @@ a.link.email {
 }
 
 .project-title {
-	text-align: center;
 	font-size: large;
 	font-weight: bold;
 }
 
 .project-description {
-	text-align: justify;
 	margin-top: 0.25rem;
 }
 
 .project-technology {
-	text-align: center;
 	margin-left: 0.5rem;
 	margin-right: 0.5rem;
 }

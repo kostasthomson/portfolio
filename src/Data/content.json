@@ -1,7 +1,5 @@
 [
 	{
-		"id": 0,
-		"question": "Who are you?",
 		"answer": "Hi! I'm Konstantinos Thomasiadis, a software engineer pasionate about creating and optimizing software. Find me here:",
 		"sleepTime": 500,
 		"content": {
@@ -9,26 +7,22 @@
 		}
 	},
 	{
-		"id": 1,
 		"question": "What do you specialize in?",
 		"answer": "I specialize in building software applications using modern tech-stacks. As a full-stack engineer I am able to understand and develop any software built with React.js, Angular, Typescript, JavaScript, Java, SpirngBoot, Express.js, Node.js, .NET and Python. Also able to use and manage both SQL (MySQL, PostgreSQL, Oracle) and NoSQL (MongoDB, Firebase, Neo4j, Redis) DBMSs.",
-		"sleepTime": 4000
+		"sleepTime": 1000
 	},
 	{
-		"id": 2,
 		"question": "Is there any other technologies that you are familiar with?",
 		"answer": "Yes, I am also familiar with cloud technologies and virtualization such as Docker, Kubernetes, AWS, Azure and GCP.",
-		"sleepTime": 7500
+		"sleepTime": 1000
 	},
 	{
-		"id": 3,
 		"question": "Can you show me some of your work?",
 		"answer": "Of course! I've worked on various projects ranging from simple pre-graduate applications to complex software solutions.",
-		"sleepTime": 11500,
+		"sleepTime": 1000,
 		"content": {
 			"projects": [
 				{
-					"id": 1,
 					"title": "Technical Debt Traceability Map",
 					"description": "This project is part of my Bachelor's Thesis research, and it is designed to provide a full-stack application for software quality analysis and technical debt traceability. The application leverages quality analysis tools and libraries to help users control and manage software's technical debt. This project showcases proficiency in modern development technologies and principles, emphasizing scalability, performance, and maintainability.",
 					"technologies": [
@@ -47,7 +41,6 @@
 					"url": "https://github.com/kostasthomson/TDTM-Tool"
 				},
 				{
-					"id": 2,
 					"title": "e-Ticketing application",
 					"description": "Developed a centralized application for managing e-tickets across public transport providers, offering a modern UI, user-friendly UX, and a comprehensive admin panel for providers to manage and monitor their assets. This project highlights expertise in building scalable, maintainable, and secure applications, tailored for real-world use cases in the public transport sector.",
 					"technologies": [
@@ -65,14 +58,12 @@
 					"url": "https://github.com/Transportation-App"
 				},
 				{
-					"id": 3,
 					"title": "Physio+",
 					"description": "Collaboratively developed an Android application designed for physiotherapy centers, enabling efficient organization and management of services. The application supports appointment scheduling, patient registry creation, session logging, and financial tracking for both physiotherapists and patients. This project was developed as part of the Applications Development for Android Devices course at the University of Macedonia, showcasing practical skills in mobile app development, backend integration, and collaborative teamwork.",
 					"technologies": ["Java", "PHP", "MySQL", "Git", "Android Studio"],
 					"url": "https://github.com/Physio-plus-org"
 				},
 				{
-					"id": 4,
 					"title": "UniverseCity",
 					"description": "Developed a university management system as part of a pre-graduate class project, designed to streamline processes for students, faculty, and administrative staff. This project highlights proficiency in web technologies and the ability to design solutions tailored to the needs of educational institutions.",
 					"technologies": ["HTML", "CSS", "Bootstrap", "JavaScript", "Git"],

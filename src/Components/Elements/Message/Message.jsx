@@ -1,5 +1,5 @@
-import { SocialLinks } from "./Links";
-import ProjectsSection from "../Containers/ProjectsSection";
+import { SocialLinks } from "../Links";
+import ProjectsSection from "../../Containers/ProjectsSection";
 
 function Message({ className, text, content }) {
 	return (
