@@ -3,6 +3,15 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      colors: {
+        background: 'hsl(243, 48%, 10%)',
+        primary: 'hsl(249, 51%, 20%)',
+        secondary: 'hsl(245, 39%, 50%)',
+        highlight: 'hsl(280, 34%, 76%)',
+        accent: 'hsl(0, 0%, 100%)',
+        darkAccent: 'hsl(250, 50%, 30%)',
+        midShade: 'hsl(247, 45%, 35%)'
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },

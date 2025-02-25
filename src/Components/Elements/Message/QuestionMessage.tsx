@@ -20,7 +20,7 @@ function QuestionMessage({
         {isTyping && !showAll && <TypingIndicator />}
         {(show || showAll) && (
           <Message
-            className="bg-blue-600 text-white rounded-tr-md"
+            className="bg-secondary rounded-tr-md"
             text={question}
           />
         )}

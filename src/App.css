@@ -1,6 +1,6 @@
 body {
   height: 100%;
-  background-color: rgb(10, 10, 10);
+  background-color: hsl(243, 48%, 10%);
 }
 
 #root {
@@ -8,17 +8,19 @@ body {
 }
 
 a.link {
+  width: min-content;
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 0.25rem;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   transition: 0.3s;
 }
 
 a.link:hover,
 .project-card:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(51 65 85 / var(--tw-bg-opacity, 1));
+  color: hsl(249, 51%, 20%);
+  background-color: hsl(280, 34%, 76%);
   filter: drop-shadow(0px 0px 4px hsl(240, 3%, 50%));
 }
 
@@ -28,15 +30,15 @@ a.link.email {
 
 .card {
   padding: 0 0.5rem 0 0.5rem;
-  border-radius: 0.75rem;
+  border-radius: 2rem;
   text-align: center;
   cursor: default;
 }
 
 .project-card {
-  background-color: #303036;
-  margin-bottom: 1rem;
+  background-color: #433d8b;
   color: white;
+  margin-bottom: 1rem;
   margin-top: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -73,6 +75,6 @@ a.link.email {
 }
 
 .carousel-button:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity, 1)) /* #3b82f6 */;
+  color: hsl(249, 51%, 20%);
+  background-color: hsl(280, 34%, 76%);
 }

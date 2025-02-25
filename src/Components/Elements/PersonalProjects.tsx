@@ -9,7 +9,7 @@ function PersonalProjects({
   projects: ProjectContent[];
 }) {
   return (
-    <ul className="px-2 flex flex-col justify-evenly">
+    <ul className="px-2">
       {projects.map((project, index) => (
         <ProjectCard
           key={index}

@@ -50,6 +50,7 @@ function Conversation({
       } else {
         setShowQuestion(true);
         setShowAnswer(true);
+        showNext();
       }
     };
     displayComponent();

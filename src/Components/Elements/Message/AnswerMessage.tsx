@@ -25,7 +25,7 @@ function AnswerMessage({
         {isTyping && !showAll && <TypingIndicator />}
         {(show || showAll) && (
           <Message
-            className="bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 rounded-tl-md"
+            className="bg-primary rounded-tl-md pl-2.5 pb-1.5"
             text={answer}
             content={content}
           />

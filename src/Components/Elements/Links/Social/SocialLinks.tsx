@@ -2,12 +2,12 @@ import { EmailLink, GitHubLink, LinkedInLink, PhoneLink } from '.';
 
 function SocialLinks() {
   return (
-    <span className="flex justify-evenly mt-5 mb-2 flex-wrap">
+    <div className="grid grid-rows-auto grid-cols-2 sm:grid-cols-4 grid-flow-row mt-5 mb-2 gap-x-2 gap-y-2 justify-items-center items-center">
       <PhoneLink />
       <EmailLink />
       <LinkedInLink />
       <GitHubLink />
-    </span>
+    </div>
   );
 }
 

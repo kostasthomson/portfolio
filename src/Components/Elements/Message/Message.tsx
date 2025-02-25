@@ -15,7 +15,7 @@ function Message({
     <div
       className={`${
         className ? className : ''
-      } py-2 px-4 rounded-3xl flex flex-col h-max`}
+      } py-2 px-4 rounded-3xl flex flex-col h-max shadow-md text-accent`}
     >
       <p className={`${className ? className : ''} text-wrap flex flex-col`}>
         {text}
