@@ -2,7 +2,13 @@ import { useState } from 'react';
 import Conversation from '../Containers/Conversation';
 import { ConversationType } from '../../Types/Parameters';
 
-function Main({ conversation }: { conversation: ConversationType[] }) {
+function Main({
+  conversation,
+  showFooter,
+}: {
+  conversation: ConversationType[];
+  showFooter: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const [showAll, setShowAll] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const showNext = () => {
@@ -12,13 +18,21 @@ function Main({ conversation }: { conversation: ConversationType[] }) {
     setCurrentIndex(conversation.length - 1);
     setShowAll(true);
   };
+
   return (
     <main className="flex flex-col items-center justify-center">
-      <button className="bg-blue-500 text-white" onClick={handleShowAllClick}>
-        Press me
-      </button>
       <ul className="px-5 sm:px-28 md:px-36 lg:px-56 xl:px-72 2xl:px-96 w-full flex flex-col justify-center">
         {conversation.slice(0, currentIndex + 1).map((element, index) => {
+          if (index == conversation.length - 1)
+            return (
+              <Conversation
+                key={index}
+                conversation={element}
+                showNext={showNext}
+                showAll={showAll}
+                showFooter={showFooter}
+              />
+            );
           return (
             <Conversation
               key={index}
@@ -29,6 +43,12 @@ function Main({ conversation }: { conversation: ConversationType[] }) {
           );
         })}
       </ul>
+      <button
+        className="absolute top-0 z-10 bg-blue-500 text-white"
+        onClick={handleShowAllClick}
+      >
+        Press me
+      </button>
     </main>
   );
 }

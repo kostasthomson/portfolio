@@ -14,7 +14,10 @@ function ProjectsSection({ projects }: { projects: ProjectContent[] }) {
   };
   return (
     <div className="relative flex items-center">
-      <ArrowButton className="left-0" handler={handleLeftClick}>
+      <ArrowButton
+        className="left-2 hover:bg-gradient-to-r rounded-s-[2rem] justify-start"
+        handler={handleLeftClick}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -31,7 +34,10 @@ function ProjectsSection({ projects }: { projects: ProjectContent[] }) {
         </svg>
       </ArrowButton>
       <PersonalProjects visibleProject={visibleProject} projects={projects} />
-      <ArrowButton className="right-0 " handler={handleRightClick}>
+      <ArrowButton
+        className="right-2 hover:bg-gradient-to-l rounded-e-[2rem] justify-end"
+        handler={handleRightClick}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

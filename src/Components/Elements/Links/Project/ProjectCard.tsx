@@ -10,7 +10,7 @@ function ProjectCard({
   const { title, description, technologies, url } = project;
   return (
     <li
-      className={`${!isVisible ? 'hidden' : 'block'} card project-card min-h-96`}
+      className={`${!isVisible ? 'hidden' : 'flex'} card project-card min-h-96`}
     >
       <a href={url} target="_blank" rel="noreferrer">
         <h5 className="project-title">{title}</h5>

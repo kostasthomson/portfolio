@@ -6,10 +6,12 @@ function Conversation({
   conversation,
   showNext,
   showAll,
+  showFooter,
 }: {
   conversation: ConversationType;
   showNext: () => void;
   showAll: boolean;
+  showFooter?: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const scrollRef = useRef<HTMLLIElement>(null);
   const [showQuestion, setShowQuestion] = useState(false);
@@ -52,6 +54,7 @@ function Conversation({
         setShowAnswer(true);
         showNext();
       }
+      if (showFooter) showFooter(true);
     };
     displayComponent();
   }, [showAll]);

@@ -31,7 +31,6 @@ a.link.email {
 .card {
   padding: 0 0.5rem 0 0.5rem;
   border-radius: 2rem;
-  text-align: center;
   cursor: default;
 }
 
@@ -42,18 +41,22 @@ a.link.email {
   margin-top: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   transition: 0.15s ease-in-out;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .project-title {
   font-size: large;
   font-weight: bold;
+  text-align: center;
 }
 
 .project-description {
   margin-top: 0.25rem;
+  text-align: justify;
 }
 
 .project-technology {
