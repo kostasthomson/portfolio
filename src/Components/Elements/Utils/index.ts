@@ -1,2 +1,4 @@
 import ArrowButton from './ArrowButton';
-export { ArrowButton };
+import { ContactInfoModal } from './Modal';
+
+export { ArrowButton, ContactInfoModal };
