@@ -1,27 +1,39 @@
-import { onValue, push, ref, set } from 'firebase/database';
-import { useEffect, useState } from 'react';
+import { push, ref as dbRef, set } from 'firebase/database';
+import { useState } from 'react';
 import { database } from '../../Firebase';
-import { ContactInfoModal } from '../Elements/Utils';
+import { ContactInfoModal } from '../Elements';
+import { useAlert } from '../Elements/Alert';
 
-function Footer({ className, show }: { className?: string; show: boolean }) {
+function Footer({
+  className,
+  show,
+  ref,
+}: {
+  className?: string;
+  show: boolean;
+  ref: React.RefObject<HTMLElement | null>;
+}) {
+  const { showAlert } = useAlert();
   const [messageValue, setMessageValue] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSendMessage = (name: string, email: string) => {
     try {
-      const newQuestionRef = push(ref(database, `questions/${email}`));
+      const newQuestionRef = push(dbRef(database, `questions/${email}`));
       set(newQuestionRef, {
         name: name,
         email: email,
         message: messageValue,
       });
+      showAlert('Message sent! Thank you for your interest', 'success');
     } catch (e) {
-      alert(e);
+      showAlert('Error sending the message', 'error');
     }
   };
 
   return (
     <footer
+      ref={ref}
       className={`
       ${className ? className : ''}
       ${show ? 'flex' : 'hidden'}
@@ -58,6 +70,7 @@ function Footer({ className, show }: { className?: string; show: boolean }) {
           setIsModalOpen(false);
           setMessageValue('');
         }}
+        showAlert={showAlert}
       />
     </footer>
   );

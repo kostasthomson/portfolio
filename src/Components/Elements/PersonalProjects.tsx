@@ -1,12 +1,12 @@
-import { ProjectContent } from '../../Types/Parameters';
 import ProjectCard from './Links/Project/ProjectCard';
+import { ParameterTypes } from '../../Types';
 
 function PersonalProjects({
   visibleProject,
   projects,
 }: {
   visibleProject: number;
-  projects: ProjectContent[];
+  projects: ParameterTypes.ProjectContent[];
 }) {
   return (
     <ul className="px-2">

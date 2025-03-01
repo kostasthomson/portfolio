@@ -1,6 +1,6 @@
 import TypingIndicator from './TypingIndicator';
 import Message from './Message';
-import { ContentType } from '../../../Types/Parameters';
+import { ParameterTypes } from '../../../Types';
 
 function AnswerMessage({
   answer,
@@ -12,7 +12,7 @@ function AnswerMessage({
   showAll,
 }: {
   answer: string;
-  content?: ContentType;
+  content?: ParameterTypes.ContentType;
   show: boolean;
   isTyping: boolean;
   typingDelay: number;

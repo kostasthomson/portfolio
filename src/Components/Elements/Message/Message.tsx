@@ -1,6 +1,6 @@
 import { SocialLinks } from '../Links';
 import ProjectsSection from '../../Containers/ProjectsSection';
-import { ContentType } from '../../../Types/Parameters';
+import { ParameterTypes } from '../../../Types';
 
 function Message({
   className,
@@ -9,7 +9,7 @@ function Message({
 }: {
   className: string;
   text: string;
-  content?: ContentType;
+  content?: ParameterTypes.ContentType;
 }) {
   return (
     <div

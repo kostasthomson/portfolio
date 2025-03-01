@@ -1,11 +1,11 @@
-import { ProjectContent } from '../../../../Types/Parameters';
+import { ParameterTypes } from '../../../../Types';
 
 function ProjectCard({
   isVisible,
   project,
 }: {
   isVisible: boolean;
-  project: ProjectContent;
+  project: ParameterTypes.ProjectContent;
 }) {
   const { title, description, technologies, url } = project;
   return (

@@ -1,8 +1,12 @@
 import { useState } from 'react';
 import { PersonalProjects, ArrowButton } from '../Elements';
-import { ProjectContent } from '../../Types/Parameters';
+import { ParameterTypes } from '../../Types';
 
-function ProjectsSection({ projects }: { projects: ProjectContent[] }) {
+function ProjectsSection({
+  projects,
+}: {
+  projects: ParameterTypes.ProjectContent[];
+}) {
   const [visibleProject, setVisibleProject] = useState(0);
   const handleLeftClick = () => {
     setVisibleProject((prev) => (prev > 0 ? prev - 1 : prev));

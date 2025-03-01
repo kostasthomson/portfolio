@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { QuestionMessage, AnswerMessage } from '../Elements';
-import { ConversationType } from '../../Types/Parameters';
+import { ParameterTypes } from '../../Types';
 
 function Conversation({
   conversation,
@@ -8,7 +8,7 @@ function Conversation({
   showAll,
   showFooter,
 }: {
-  conversation: ConversationType;
+  conversation: ParameterTypes.ConversationType;
   showNext: () => void;
   showAll: boolean;
   showFooter?: React.Dispatch<React.SetStateAction<boolean>>;
@@ -24,7 +24,7 @@ function Conversation({
   const sleep = (ms: number) =>
     new Promise((resolve) => setTimeout(resolve, ms));
   useEffect(() => {
-    if (scrollRef.current) {
+    if (!showAll && scrollRef.current) {
       scrollRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [showQuestion, showAnswer, isTypingQ, isTypingA]);
