@@ -1,8 +1,0 @@
-1. add a social platform-specific clickable profile
-rather than plain link text
-
-2. add color theme
-
-3. add download cv
-
-4. add education background and certifications
