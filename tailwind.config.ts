@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import { Config } from "tailwindcss";
+import { Config } from 'tailwindcss';
 
 const config: Config = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
@@ -28,10 +28,10 @@ const config: Config = {
           '100%': { transform: 'scale(1)' },
         },
         fadeInOut: {
-          '0%': { opacity: 0, transform: 'translateY(-10px)' },
-          '10%': { opacity: 1, transform: 'translateY(0)' },
-          '90%': { opacity: 1, transform: 'translateY(0)' },
-          '100%': { opacity: 0, transform: 'translateY(-10px)' },
+          '0%': { opacity: '0', transform: 'translateY(-10px)' },
+          '10%': { opacity: '1', transform: 'translateY(0)' },
+          '90%': { opacity: '1', transform: 'translateY(0)' },
+          '100%': { opacity: '0', transform: 'translateY(-10px)' },
         },
       },
       animation: {

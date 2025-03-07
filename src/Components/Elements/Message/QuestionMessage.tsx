@@ -19,10 +19,7 @@ function QuestionMessage({
       <div className={`max-w-[80%] flex justify-end mb-5 px-2 self-end`}>
         {isTyping && !showAll && <TypingIndicator />}
         {(show || showAll) && (
-          <Message
-            className="bg-secondary rounded-tr-md"
-            text={question}
-          />
+          <Message className="bg-secondary rounded-tr-md" text={question} />
         )}
       </div>
     )

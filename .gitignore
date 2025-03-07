@@ -6,10 +6,12 @@
 .pnp.js
 
 # testing
+__mocks__
 /coverage
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -23,3 +25,4 @@ yarn-debug.log*
 yarn-error.log*
 
 .env
+.vscode

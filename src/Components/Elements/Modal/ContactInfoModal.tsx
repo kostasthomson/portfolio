@@ -2,7 +2,7 @@ import { FormEvent, useState, useRef } from 'react';
 import FormModalWrapper from './FormModalWrapper';
 import ModalTitle from './ModalTitle';
 import FormModalInput from './FormModalInput';
-import { AlertType } from '../Alert/AlertContext';
+import { AlertTypes } from '../../../Types';
 
 function ContactInfoModal({
   open,
@@ -13,7 +13,11 @@ function ContactInfoModal({
   open: boolean;
   submitAction: (name: string, email: string) => void;
   onClose: () => void;
-  showAlert: (message: string, type: AlertType, duration?: number) => void;
+  showAlert: (
+    message: string,
+    type: AlertTypes.AlertType,
+    duration?: number
+  ) => void;
 }) {
   const [contactName, setContactName] = useState('');
   const [contactEmail, setContactEmail] = useState('');
