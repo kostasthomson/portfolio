@@ -8,6 +8,7 @@ async function fetchServerlessFunction() {
   return firebase;
 }
 const firebase: any = fetchServerlessFunction();
+console.log(firebase);
 const firebaseConfig = {
   apiKey: firebase.FIREBASE_ApiKey,
   authDomain: firebase.FIREBASE_AuthDomain,
