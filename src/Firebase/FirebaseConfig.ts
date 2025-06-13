@@ -2,7 +2,8 @@ import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
 async function fetchServerlessFunction() {
   const { event, context, ...firebase }: any = await fetch(
-    'https://reliable-belekoy-ddd42b.netlify.app/.netlify/functions/main'
+    'https://reliable-belekoy-ddd42b.netlify.app/.netlify/functions/main',
+    { method: 'POST' }
   );
   return firebase;
 }
