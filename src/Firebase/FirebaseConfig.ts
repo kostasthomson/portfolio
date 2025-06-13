@@ -1,7 +1,12 @@
 import { initializeApp } from 'firebase/app';
 import { getDatabase } from 'firebase/database';
-
-const {event, context, ...firebase} = await fetch('https://reliable-belekoy-ddd42b.netlify.app/.netlify/functions/main');
+async function fetchServerlessFunction() {
+  const { event, context, ...firebase }: any = await fetch(
+    'https://reliable-belekoy-ddd42b.netlify.app/.netlify/functions/main'
+  );
+  return firebase;
+}
+const firebase: any = fetchServerlessFunction();
 const firebaseConfig = {
   apiKey: firebase.FIREBASE_ApiKey,
   authDomain: firebase.FIREBASE_AuthDomain,
