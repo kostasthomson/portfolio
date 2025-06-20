@@ -1,3 +1,3 @@
-import setupFirebase from './FirebaseConfig';
+import useFirebaseDatabase from './FirebaseConfig';
 
-export default setupFirebase;
+export default useFirebaseDatabase;

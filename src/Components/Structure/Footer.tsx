@@ -1,8 +1,8 @@
 import { push, ref as dbRef, set } from 'firebase/database';
 import { useState } from 'react';
-import { database } from '../../Firebase';
 import { ContactInfoModal } from '../Elements';
 import { useAlert } from '../Elements/Alert';
+import useFirebaseDatabase from '../../Firebase';
 
 function Footer({
   className,
@@ -16,16 +16,19 @@ function Footer({
   const { showAlert } = useAlert();
   const [messageValue, setMessageValue] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { database, loading, error } = useFirebaseDatabase();
 
   const handleSendMessage = (name: string, email: string) => {
     try {
-      const newQuestionRef = push(dbRef(database, `questions/${email}`));
-      set(newQuestionRef, {
-        name: name,
-        email: email,
-        message: messageValue,
-      });
-      showAlert('Message sent! Thank you for your interest', 'success');
+      if (database) {
+        const newQuestionRef = push(dbRef(database, `questions/${email}`));
+        set(newQuestionRef, {
+          name: name,
+          email: email,
+          message: messageValue,
+        });
+        showAlert('Message sent! Thank you for your interest', 'success');
+      } else if (error) throw error;
     } catch (e) {
       showAlert('Error sending the message', 'error');
     }
