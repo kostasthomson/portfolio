@@ -55,7 +55,7 @@ export default function useFirebaseDatabase(): UseFirebaseDatabaseResult {
           appId: firebase.FIREBASE_AppId,
           measurementId: firebase.FIREBASE_MeasurementId,
         };
-        console.log('Firebase Config:', firebaseConfig);
+
         const app: FirebaseApp = initializeApp(firebaseConfig);
         const db: Database = getDatabase(app);
 

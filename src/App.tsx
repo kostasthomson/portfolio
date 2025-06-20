@@ -13,28 +13,23 @@ function App() {
   const { database, loading, error } = useFirebaseDatabase();
 
   useEffect(() => {
-    let unsubscribe = () => {}; // default no-op, in case fetch fails
+    if (!database) return; // Wait for database to be ready
 
-    const fetchData = async () => {
-      try {
-        if (database) {
-          const starCountRef = ref(database, 'content/');
-          // onValue returns an unsubscribe function
-          unsubscribe = onValue(starCountRef, (snapshot) => {
-            setData(snapshot.val());
-          });
-        } else if (error) throw error;
-      } catch (error) {
-        console.error('Firebase fetch error:', error);
+    const starCountRef = ref(database, 'content/');
+    const unsubscribe = onValue(
+      starCountRef,
+      (snapshot) => {
+        setData(snapshot.val());
+      },
+      (err) => {
+        console.error('Firebase onValue error:', err);
       }
-    };
-
-    fetchData();
+    );
 
     return () => {
-      unsubscribe(); // Clean up listener on unmount
+      unsubscribe();
     };
-  }, []);
+  }, [database]);
 
   useEffect(() => {
     if (showFooter) {
@@ -43,6 +38,10 @@ function App() {
       }
     }
   }, [showFooter]);
+
+  if (loading) return <p>Loading Firebase...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
   return (
     <AlertProvider>
       <Header />
