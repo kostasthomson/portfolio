@@ -64,6 +64,7 @@ export default function useFirebaseDatabase(): UseFirebaseDatabaseResult {
           setLoading(false);
         }
       } catch (err) {
+        console.log(err);
         if (isMounted) {
           setError(err as Error);
           setLoading(false);
