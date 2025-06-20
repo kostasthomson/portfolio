@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+const publicRoot = import.meta.env.BASE_URL || '/public';
+
 function Header() {
   const [isSticky, setIsSticky] = useState(false);
 
@@ -12,7 +14,6 @@ function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   return (
     <header
       className={`
@@ -31,7 +32,7 @@ function Header() {
         >
           <img
             loading="lazy"
-            src="/profile_image.jpg"
+            src={`${publicRoot}/profile_image.jpg`}
             alt="profile-picture"
             className="w-full h-full object-cover aspect-square"
           />
