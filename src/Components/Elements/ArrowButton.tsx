@@ -12,7 +12,8 @@ function ArrowButton({
   return (
     <button
       className={`${className ? className : ''}
-        h-96 w-[3rem] absolute z-10 flex items-center
+        h-[92.5%] w-12
+        absolute z-10 flex items-center
         transition-all duration-100 ease-in
         hover:text-darkAccent from-highlight/80 to-transparent`}
       onClick={handler}

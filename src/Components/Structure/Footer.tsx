@@ -1,5 +1,5 @@
 import { push, ref as dbRef, set } from 'firebase/database';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { database } from '../../Firebase';
 import { ContactInfoModal } from '../Elements';
 import { useAlert } from '../Elements/Alert';
@@ -16,6 +16,7 @@ function Footer({
   const { showAlert } = useAlert();
   const [messageValue, setMessageValue] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
 
   const handleSendMessage = (name: string, email: string) => {
     try {
@@ -41,6 +42,7 @@ function Footer({
       text-black gap-2 justify-center items-center m-2`}
     >
       <textarea
+        ref={textAreaRef}
         className="w-11/12 h-auto rounded-3xl py-2 px-4 text-base outline-none resize-none text-accent bg-gray-800"
         value={messageValue}
         onChange={(e) => setMessageValue(e.target.value)}
@@ -50,9 +52,17 @@ function Footer({
           element.style.height = `${element.scrollHeight}px`;
         }}
         rows={1}
-        placeholder="Send me your question..."
+        placeholder="Type your message..."
       />
-      <button className="me-2" onClick={() => setIsModalOpen(true)}>
+      <button
+        className="me-2"
+        onClick={() => {
+          if (messageValue === '') {
+            showAlert('Please input your message', 'info');
+            if (textAreaRef.current) textAreaRef.current.focus();
+          } else setIsModalOpen(true);
+        }}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"

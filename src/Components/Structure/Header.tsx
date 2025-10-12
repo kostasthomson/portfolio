@@ -4,9 +4,17 @@ function Header() {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
     const handleScroll = () => {
-      if (window.scrollY > 20) setIsSticky(true);
-      if (window.scrollY <= 10) setIsSticky(false);
+      console.log(window.scrollY);
+      if (Math.abs(window.scrollY - lastScrollY) > 10) {
+        if (window.scrollY > 40) {
+          setIsSticky(true);
+        } else if (window.scrollY <= 20) {
+          setIsSticky(false);
+        }
+        lastScrollY = window.scrollY;
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -18,14 +26,14 @@ function Header() {
       className={`
         sm:mx-20 md:mx-28 lg:mx-48 xl:mx-64 2xl:mx-80
         sticky top-0 z-10 text-accent bg-midShade rounded-b-3xl
-        transition-all duration-300 ease-in-out
+        transition-all duration-200 ease-in-out
         ${isSticky ? 'py-3 px-6 sm:px-10 shadow-md' : 'py-5 px-8 sm:px-12'}
       `}
     >
-      <div className="max-w-4xl mx-auto flex items-center gap-4 md:gap-6 lg:gap-10 transition-all duration-300">
+      <div className="max-w-4xl mx-auto flex items-center gap-4 md:gap-6 lg:gap-10 transition-all duration-200">
         <div
           className={` flex-none
-            overflow-hidden border-1 border-black rounded-full transition-all duration-300 
+            overflow-hidden border-1 border-black rounded-full transition-all duration-200 
             ${isSticky ? 'w-14 sm:w-16' : 'w-20 sm:w-24'}
           `}
         >
@@ -42,7 +50,7 @@ function Header() {
           </h1>
           <h3
             className={`
-              text-sm sm:text-base md:text-lg italic overflow-hidden transition-all duration-300 
+              text-sm sm:text-base md:text-lg italic overflow-hidden transition-all duration-200 
               ${isSticky ? 'opacity-0 h-0' : 'opacity-100 h-auto'}
             `}
           >
@@ -53,7 +61,7 @@ function Header() {
           href="https://1drv.ms/b/c/a2821bbdc8d13ccb/IQLLPNHIvRuCIICi8I4AAAAAAbesWtfc-emVMutFjs4_hLs"
           target="_blank"
           className="ml-auto flex items-center gap-2 px-3 sm:px-4 py-2 bg-accent text-primary text-xs sm:text-sm md:text-base 
-            font-semibold rounded-lg shadow-md hover:bg-primary hover:text-accent transition-all duration-300"
+            font-semibold rounded-lg shadow-md hover:bg-primary hover:text-accent transition-all duration-200"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

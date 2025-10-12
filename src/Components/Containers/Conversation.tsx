@@ -13,7 +13,6 @@ function Conversation({
   showAll: boolean;
   showFooter?: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  const scrollRef = useRef<HTMLLIElement>(null);
   const [showQuestion, setShowQuestion] = useState(false);
   const [isTypingQ, setIsTypingQ] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -24,9 +23,8 @@ function Conversation({
   const sleep = (ms: number) =>
     new Promise((resolve) => setTimeout(resolve, ms));
   useEffect(() => {
-    if (!showAll && scrollRef.current) {
-      scrollRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (!showAll)
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
   }, [showQuestion, showAnswer, isTypingQ, isTypingA]);
   useEffect(() => {
     const startConversation = async () => {
@@ -60,7 +58,6 @@ function Conversation({
   }, [showAll]);
   return (
     <li
-      ref={scrollRef}
       className="flex flex-col my-5 transition-all duration-300 ease-out animate-slideIn"
     >
       <QuestionMessage
